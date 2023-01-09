@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -35,6 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         ReadInputs();
         HandleMovement();
+        RotateCharacter();
     }
 
     private void ReadInputs()
@@ -56,5 +58,20 @@ public class PlayerBehaviour : MonoBehaviour
 
         //Asign final Movement
         controller.Move(finalSpeed * Time.deltaTime);
+    }
+
+    private void RotateCharacter()
+    {
+        if (finalSpeed.magnitude != 0)
+        {
+            float rotationX = Input.GetAxis("Mouse X");
+            transform.Rotate(Vector3.up * rotationX * Time.deltaTime);
+
+            Quaternion cameraRotation = mainCamera.transform.rotation;
+            cameraRotation.x = 0f;
+            cameraRotation.z = 0f;
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, cameraRotation, 0.1f);
+        }
     }
 }
