@@ -6,7 +6,7 @@ public class TimeObject : MonoBehaviour
 {
     //Lerp bewtwen positions movement
     [SerializeField]
-    private Vector3 finalPosition;
+    private Vector3 finalPosition = Vector3.zero;
 
     [SerializeField]
     private float duration;
@@ -31,6 +31,7 @@ public class TimeObject : MonoBehaviour
     [SerializeField]
     private Material currentMaterrial;
 
+    //Past material or future material
     [SerializeField]
     private Material finalMaterial;
 
@@ -81,10 +82,17 @@ public class TimeObject : MonoBehaviour
         lerpFactor = time / duration;
 
         //Movement
-        transform.position = Vector3.Lerp(originalPosition, finalPosition, lerpFactor);
+        if(finalPosition != Vector3.zero)
+        {
+            transform.position = Vector3.Lerp(originalPosition, finalPosition, lerpFactor);
+        }
 
         //Material
-        gameObjectRenderer.material.color = Vector4.Lerp(originalColor, finalColor, lerpFactor);
+        if(finalColor != Vector4.zero)
+        {
+            gameObjectRenderer.material.color = Vector4.Lerp(originalColor, finalColor, lerpFactor);
+        }
+        
     }
 
     private void CountTime()
