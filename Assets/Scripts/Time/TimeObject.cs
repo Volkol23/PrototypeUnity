@@ -93,6 +93,7 @@ public class TimeObject : MonoBehaviour
             gameObjectRenderer.material.color = Vector4.Lerp(originalColor, finalColor, lerpFactor);
         }
         
+        
     }
 
     private void CountTime()
@@ -110,4 +111,5 @@ public class TimeObject : MonoBehaviour
     {
         direction = -1f;
     }
+ 
 }
