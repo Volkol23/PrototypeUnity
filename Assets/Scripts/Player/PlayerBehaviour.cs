@@ -21,6 +21,9 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private Vector3 finalSpeed;
 
+    [SerializeField]
+    private float mouseSensivity;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -65,7 +68,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (finalSpeed.magnitude != 0)
         {
-            float rotationX = Input.GetAxis("Mouse X");
+            float rotationX = Input.GetAxis("Mouse X") * mouseSensivity;
             transform.Rotate(Vector3.up * rotationX * Time.deltaTime);
 
             Quaternion cameraRotation = mainCamera.transform.rotation;

@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager _GAME_MANAGER;
 
+    public float timeSpend;
+
     private void Awake()
     {
         if (_GAME_MANAGER != null && _GAME_MANAGER != this)

@@ -93,7 +93,7 @@ public class TimeObject : MonoBehaviour
             gameObjectRenderer.material.color = Vector4.Lerp(originalColor, finalColor, lerpFactor);
         }
         
-        
+       
     }
 
     private void CountTime()

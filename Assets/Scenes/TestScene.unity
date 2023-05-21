@@ -1472,6 +1472,7 @@ MonoBehaviour:
   verticalInput: 0
   direction: {x: 0, y: 0, z: 0}
   finalSpeed: {x: 0, y: 0, z: 0}
+  mouseSensivity: 2
 --- !u!1001 &813355192
 PrefabInstance:
   m_ObjectHideFlags: 0
